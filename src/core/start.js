@@ -13,7 +13,7 @@ class StartCore {
         consume("my_queue", async message => {
 
             for(let queue of listQueue) {
-                queue.sendToQueue("my_queue", JSON.parse(message.content.toString()));
+                await queue.sendToQueue("my_queue", JSON.parse(message.content.toString()));
             }
             getChannel().ack(message);
             return;
